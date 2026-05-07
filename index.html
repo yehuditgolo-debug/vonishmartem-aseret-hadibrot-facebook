@@ -759,6 +759,30 @@
         <input type="checkbox" id="consent-check">
         <span class="consent-text" style="color: var(--white); font-size: 1rem; font-weight: 500;">אני מאשר/ת קבלת תכנים, הדרכות ומבצעים מ"ונשמרתם" בדוא"ל, SMS, וואטסאפ וטלפון. ניתן להסיר את ההרשמה בכל עת.</span>
       </label>
+
+      <script>
+        (function() {
+          document.addEventListener('submit', function(e) {
+            var form = e.target;
+            if (!form || !form.action) return;
+            if (form.action.indexOf('responder.live') === -1) return;
+            var consentCheck = document.getElementById('consent-check');
+            if (consentCheck && consentCheck.checked) return;
+            e.preventDefault();
+            e.stopPropagation();
+            var row = consentCheck && consentCheck.closest('.consent-row');
+            if (row) {
+              row.scrollIntoView({behavior: 'smooth', block: 'center'});
+              row.style.outline = '2px solid #ff6b6b';
+              row.style.outlineOffset = '6px';
+              row.style.borderRadius = '6px';
+              setTimeout(function() { row.style.outline = 'none'; }, 2500);
+            }
+            alert('יש לסמן את אישור הדיוור לפני השליחה');
+            return false;
+          }, true);
+        })();
+      </script>
       <p class="form-privacy">הפרטים שלך שמורים אצלנו, לא יועברו לגורם שלישי, וניתן להסיר את ההרשמה בכל עת.</p>
     </div>
   </section>
