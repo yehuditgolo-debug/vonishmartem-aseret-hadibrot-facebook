@@ -749,32 +749,16 @@
     <div class="form-wrapper">
       <div class="form-title">קבל את ההדרכה החינמית עכשיו</div>
       <div class="form-subtitle">פרקים קצרים. 30 דקות. שיכולות לשנות הכל.</div>
-      <!-- Legal consent gate (Israeli spam law compliance) -->
-      <label class="consent-row" for="consent-check" style="margin-bottom: 20px;">
-        <input type="checkbox" id="consent-check">
-        <span class="consent-text">אני מאשר/ת קבלת תכנים, הדרכות ומבצעים מ"ונשמרתם" בדוא"ל, SMS, וואטסאפ וטלפון. ניתן להסיר את ההרשמה בכל עת.</span>
-      </label>
-
       <!-- Rav-Messer (RavPage) form embed - Facebook campaign -->
-      <div id="ravpage-form" class="ravpage-embed" style="opacity: 0.4; pointer-events: none; transition: opacity 0.25s ease;">
+      <div class="ravpage-embed">
         <script type='text/javascript' src='//form2.ravpage.co.il/f81c3d3953199f94c998c9fc5bd5e4a669FCBD5F' charset='UTF-8'></script>
       </div>
 
-      <script>
-        (function() {
-          var c = document.getElementById('consent-check');
-          var f = document.getElementById('ravpage-form');
-          c.addEventListener('change', function() {
-            if (c.checked) {
-              f.style.opacity = '1';
-              f.style.pointerEvents = 'auto';
-            } else {
-              f.style.opacity = '0.4';
-              f.style.pointerEvents = 'none';
-            }
-          });
-        })();
-      </script>
+      <!-- Legal consent (Israeli spam law compliance) -->
+      <label class="consent-row" for="consent-check" style="margin-top: 22px;">
+        <input type="checkbox" id="consent-check">
+        <span class="consent-text" style="color: var(--white); font-size: 1rem; font-weight: 500;">אני מאשר/ת קבלת תכנים, הדרכות ומבצעים מ"ונשמרתם" בדוא"ל, SMS, וואטסאפ וטלפון. ניתן להסיר את ההרשמה בכל עת.</span>
+      </label>
       <p class="form-privacy">הפרטים שלך שמורים אצלנו, לא יועברו לגורם שלישי, וניתן להסיר את ההרשמה בכל עת.</p>
     </div>
   </section>
