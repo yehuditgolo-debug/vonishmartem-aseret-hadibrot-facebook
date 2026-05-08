@@ -755,7 +755,7 @@
       <div class="form-subtitle">פרקים קצרים. 30 דקות. שיכולות לשנות הכל.</div>
       <!-- Rav-Messer (RavPage) form embed - Facebook campaign -->
       <div class="ravpage-embed">
-        <script type='text/javascript' src='//form2.ravpage.co.il/95da91150e705e07d3c800ad1066831769FC2C03?__external_ai__=true&source=facebook' charset='UTF-8'></script>
+        <script type='text/javascript' src='//form2.ravpage.co.il/95da91150e705e07d3c800ad1066831769FC2C03?__external_ai__=true' charset='UTF-8'></script>
       </div>
 
       <p class="form-privacy">הפרטים שלך שמורים אצלנו, לא יועברו לגורם שלישי, וניתן להסיר את ההרשמה בכל עת.</p>
@@ -805,28 +805,6 @@
   <footer>
     <p>ונשמרתם &copy; 2025 | כל הזכויות שמורות</p>
   </footer>
-
-  <!-- Inject hidden source field into Rav-Messer form for campaign tracking -->
-  <script>
-    (function () {
-      var SOURCE_VALUE = 'facebook';
-      function addSourceField() {
-        document.querySelectorAll('form').forEach(function (form) {
-          if (!form.querySelector('input[name="source"]')) {
-            var hidden = document.createElement('input');
-            hidden.type = 'hidden';
-            hidden.name = 'source';
-            hidden.value = SOURCE_VALUE;
-            form.appendChild(hidden);
-          }
-        });
-      }
-      addSourceField();
-      var observer = new MutationObserver(addSourceField);
-      observer.observe(document.body, { childList: true, subtree: true });
-      setTimeout(function () { observer.disconnect(); }, 30000);
-    })();
-  </script>
 
 </body>
 </html>
