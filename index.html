@@ -806,6 +806,28 @@
     <p>ונשמרתם &copy; 2025 | כל הזכויות שמורות</p>
   </footer>
 
+  <!-- Inject hidden source field into Rav-Messer form for campaign tracking -->
+  <script>
+    (function () {
+      var SOURCE_VALUE = 'facebook';
+      function addSourceField() {
+        document.querySelectorAll('form').forEach(function (form) {
+          if (!form.querySelector('input[name="source"]')) {
+            var hidden = document.createElement('input');
+            hidden.type = 'hidden';
+            hidden.name = 'source';
+            hidden.value = SOURCE_VALUE;
+            form.appendChild(hidden);
+          }
+        });
+      }
+      addSourceField();
+      var observer = new MutationObserver(addSourceField);
+      observer.observe(document.body, { childList: true, subtree: true });
+      setTimeout(function () { observer.disconnect(); }, 30000);
+    })();
+  </script>
+
 </body>
 </html>
 
